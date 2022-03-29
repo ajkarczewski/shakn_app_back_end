@@ -7,11 +7,11 @@ const router = Router()
 /*---------- Public Routes ----------*/
 router.get('/:id', profilesCtrl.show)
 router.get('/', profilesCtrl.index)
-router.put('/:id', profilesCtrl.update)
+
 
 /*---------- Protected Routes ----------*/
-router.use(decodeUserFromToken)
-router.get('/', checkAuth, profilesCtrl.index)
-// router.put('/:id', checkAuth, profilesCtrl.update)
+router.post('/', profilesCtrl.create)
+router.put('/:id', profilesCtrl.update)
+
 
 export { router }
